@@ -1,0 +1,54 @@
+table, tr, th, td{
+    border-top: solid 1px #AEAEAE;
+    background-color: white;
+    border-collapse: collapse;
+    margin: 1px;
+    text-align: center;
+}
+#stitle{
+    text-align: left;
+    width: 600px;
+
+}
+#sdate{
+    text-align: left;
+    width: 200px;
+    
+}
+#slike{
+    text-align: center;
+    width: 50px;
+    
+}
+#scomment{
+    text-align: center;
+    width: 50px;
+}
+
+
+#stitletop{
+    text-align: center;
+    width: 600px;
+    background-color: #D5D5D5;
+}
+#sdatetop{
+    text-align: center;
+    width: 200px;
+    background-color: #D5D5D5;    
+}
+#sliketop{
+    text-align: center;
+    width: 50px;
+    background-color: #D5D5D5;
+}
+#scommenttop{
+    text-align: center;
+    width: 50px;
+    background-color: #D5D5D5;   
+}
+
+a{
+    font: bold;
+    color: black;
+    text-decoration: none;
+}

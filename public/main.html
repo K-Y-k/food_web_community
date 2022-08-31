@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatable" content="IE=edge">
+  <meta name="viewport" content="width=device=witdh, initial-scale=1.0">
+  <title>메인홈</title>
+  
+  <!--bootstrapcss-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link href = "/mainpage.css" rel="stylesheet">
+
+  <style>
+      /* INPUT 가리기 */
+    .img_slide input[id*="slide"] {
+      display: none;
+    }
+
+    /* 슬라이드 영역 - max-width 크기를 조절해주면 됩니다*/
+    .img_slide .slidewrap {
+      max-width: 900px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .img_slide .slidelist {
+      white-space: nowrap;
+      font-size: 0;
+    }
+    .img_slide .slidelist > li {
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+      transition: all .5s;
+    }
+    .img_slide .slidelist > li > a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+    } /* 화살표 화면 밖으로 나가면 안보이도록 OVERFLOW로 가림처리 */
+    
+    .img_slide .slidelist > li > a img {
+      width: 60%;
+      margin-left: 150px;
+    }
+
+    /* 좌우로 넘기는 LABEL버튼에 대한 스타일 */
+    .img_slide .slidelist label {
+      position: absolute;
+      z-index:1;
+      top: 50%;
+      transform:translateY(-50%);
+      padding: 40px;
+      cursor: pointer;
+    }
+    .img_slide .slidelist .left {
+      left:-300px;
+      background:url('./image/left_icon.PNG') center center / 100% no-repeat; 
+    } /* LEFT -300px로 화살표가 안보이게 되어있도록 준 스타일 */
+    .img_slide .slidelist .right {
+      right:-300px;
+      background:url('./image/right_icon.PNG') center center / 100% no-repeat;
+    } /* RIGHT -300px로 화살표가 안보이게 되어있도록 준 스타일 */
+
+    /* INPUT이 체크되면 변화값이 li까지 전달되는 스타일 */
+    .img_slide input[id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+    .img_slide input[id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+    .img_slide input[id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+    .img_slide input[id="slide04"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-300%);}
+    .img_slide input[id="slide05"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-400%);}
+
+    /* INPUT이 체크되면 변화값이 LEFT,RIGHT에 전달되는 스타일 */
+    .img_slide input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .left {left:30px;transition:all .35s ease .5s;} 
+    .img_slide input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .right {right:30px;transition:all .35s ease .5s;} 
+    .img_slide input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .left {left:30px;transition:all .35s ease .5s;} 
+    .img_slide input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .right {right:30px;transition:all .35s ease .5s;} 
+    .img_slide input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .left {left:30px;transition:all .35s ease .5s;} 
+    .img_slide input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .right {right:30px;transition:all .35s ease .5s;} 
+    .img_slide input[id="slide04"]:checked ~ .slidewrap li:nth-child(4) .left {left:30px;transition:all .35s ease .5s;} 
+    .img_slide input[id="slide04"]:checked ~ .slidewrap li:nth-child(4) .right {right:30px;transition:all .35s ease .5s;}
+    .img_slide input[id="slide05"]:checked ~ .slidewrap li:nth-child(5) .left {left:30px;transition:all .35s ease .5s;} 
+    .img_slide input[id="slide05"]:checked ~ .slidewrap li:nth-child(5) .right {right:30px;transition:all .35s ease .5s;} 
+
+    .list-group-item :hover {
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <header style="position: relative;"> <!--네비게이션바-->
+    <img src="/image/main_img/logo2.PNG" class = "logo" style="position: absolute; z-index: 3; width: 200px; left: 2%; top: 10%; display: none;" id = "logo2">
+    <div class="px-3 py-2 bg-dark text-white"  style="width: 1900px;">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <img src = "/image/main_img/home_icon.PNG" width = "50px" height="45px" >
+          <a href="main.html" class="navbar-brand"><h4 class = "thema">&nbsp;&nbsp;메인홈</h4></a>
+          <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+            <li>
+              <img src = "/image/main_img/write_icon.PNG" width = "50px" height="40px" style="margin-left: 168px; margin-top: 10px;">
+              <a href="free_main.html" class="nav-link text-white" style="font-size: 16px;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;자유게시판
+              </a>
+            </li>
+            <li>
+              <img src = "/image/main_img/write_icon.PNG" width = "50px" height="40px" style="margin-left: 130px; margin-top: 10px;">
+              <a href="store_recommend.html" class="nav-link text-white" style="font-size: 16px;">
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;식당추천게시판
+              </a>
+            </li>
+            <li>
+              <img src = "/image/main_img/muckstar_icon.PNG" width = "40px" height="40px" style="margin-left: 120px; margin-top: 10px;">
+              <a href="muckstar_main.html" class="nav-link text-white" style="font-size: 16px;">
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;먹스타그램
+              </a>
+            </li>
+            <li>
+              <img src = "/image/main_img/menu_recommend_icon.PNG" width = "50px" height="40px" style="margin-left: 115px; margin-top: 10px;">
+              <a href="menu_recommend.html" class="nav-link text-white" style="font-size: 16px;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;메뉴추천
+              </a>
+            </li>
+            <li>
+              <img src = "/image/main_img/chat_icon.PNG" width = "50px" height="40px" style="margin-left: 95px; margin-top: 10px;">
+              <a href="chat.html" class="nav-link text-white" style="font-size: 16px;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;채팅방
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section style="width: 28%; position: relative;"> <!--사이드바-->
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 275px; height: 110vh">
+      <hr>
+      <span style="text-align: center; font-size: 20px;" id="userName"></span>
+      <h4>&nbsp;&nbsp;&nbsp;FOOD WORLD에</h4> 
+      <h4>오신 것을 환영합니다!</h4>
+      <hr>
+      <div class="container" style="position:absolute; top: 14%; left: 0%; display: none;" id = "form">
+        <br>
+        <br>
+        <div class="mb-3">
+            <input type="email" class="form-control" id="inputEmail" placeholder="이메일" style="width: 250px;" id = "email_input">
+        </div>
+        <div class="mb-3">
+          <input type="password" class="form-control" id="inputPassword" placeholder="비밀번호" style="width: 250px;" id = "password_input">
+        </div>
+         <br>
+      </div>
+      <img src="/image/main_img/logo1.PNG" class = "logo" style="width: 240px; height: 150px; display: none;" id="logo">
+      <br>
+      <br>
+      <br>
+      <div class="col-auto" style="position:absolute; top: 30%; left: 2%;" id = "col-auto">
+        <button type="submit" class="btn btn-primary mb-3" style = "width: 100px; margin-left: 7px;" id = "login">로그인</button>
+        <button type="submit" class="btn btn-primary mb-3" id="logout" style="width: 100px; margin-left: 10px; display: none;">로그아웃</button>    
+        <a href = "main_register.html" ><button type="submit" class="btn btn-primary mb-3" style = "width: 100px; margin-left: 30px;" id="register">회원가입</button></a> <br>
+        
+      </div>
+      <br>
+  
+    <div class="nav nav-pills flex-column mb-auto" style="position:absolute; top: 38%; left: 0%; width: 100%;">
+      <hr>
+      <li class="nav-item">
+        <a href="free_main.html" class="nav-link text-white">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;자유게시판
+        </a>
+      </li>
+      <hr>
+      <li>
+        <a href="store_recommend.html" class="nav-link text-white">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;식당추천게시판
+        </a>
+      </li>
+      <hr>
+      <li>
+        <a href="muckstar_main.html" class="nav-link text-white">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;먹스타그램
+        </a>
+      </li>
+      <hr>
+      <li>
+        <a href="menu_recommend.html" class="nav-link text-white">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;메뉴추천
+        </a>
+      </li>
+      <hr>
+      <li>
+        <a href="chat.html" class="nav-link text-white">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;채팅방
+        </a>
+      </li>
+      <hr>
+      </div>
+    </div>
+  </section>
+  
+  <aside style="float : left; width: 43%; position: relative; height: 110vh;">
+    <br>
+    <br>
+
+    <div> <!--이미지 슬라이드-->
+      <div class = "img_slide" style="position: absolute; top: 3%; width: 815px; border: solid 3px; border-color: rgb(9, 136, 15);">
+          <input type="radio" name = "slide" id="slide01" checked>
+          <input type="radio" name = "slide" id="slide02">
+          <input type="radio" name = "slide" id="slide03">
+          <input type="radio" name = "slide" id="slide04">
+          <input type="radio" name = "slide" id="slide05">
+
+          <div class="slidewrap" style="margin-top: 15px;">
+              <ul class="slidelist">
+                <li>
+                    <a href="free_main.html">
+                      <label for = "slide05" class = "left"></label>
+                      <img src = "/image/main_img/img_slide1.PNG">
+                      <label for = "slide02" class = "right"></label>
+                    </a>
+                </li>
+
+                <li>
+                  <a href="store_recommend.html">
+                    <label for = "slide01" class = "left"></label>
+                    <img src = "/image/main_img/img_slide2.PNG">
+                    <label for = "slide03" class = "right"></label>
+                  </a>
+               </li>
+
+               <li>
+                  <a href="muckstar_main.html">
+                    <label for = "slide02" class = "left"></label>
+                    <img src = "/image/main_img/img_slide3.PNG">
+                    <label for = "slide04" class = "right"></label>
+                  </a>
+               </li>
+
+               <li>
+                  <a href="menu_recommend.html">
+                    <label for = "slide03" class = "left"></label>
+                    <img src = "/image/main_img/img_slide4.PNG">
+                    <label for = "slide05" class = "right"></label>
+                  </a>
+               </li>
+
+               <li>
+                <a href="chat.html">
+                  <label for = "slide04" class = "left"></label>
+                  <img src = "/image/main_img/img_slide5.PNG">
+                  <label for = "slide01" class = "right"></label>
+                </a>
+               </li>
+              </ul>
+       </div>
+     </div>
+    </div>
+    <div> <!--배경 꾸미는 사진-->
+      <img src="/image/main_img/main_background01.PNG" style="position: absolute; left: -30%; top: 3%; width: 230px;">
+    </div>
+    <div>
+      <img src="/image/main_img/main_background2.PNG" style="position: absolute; left: -30%; top: 45%; width: 230px;">
+    </div>
+    <div>
+      <img src="/image/main_img/main_background3.PNG" style="position: absolute; left: -30%; top: 70%; width: 230px;">
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div style="position: relative; border: solid 3px; border-color: rgb(202, 130, 22); width: 815px; height: 300px;"> <!--자유게시판 식당게시판-->
+      <div>
+        <table class = "container2 mt-10" style="white-space: nowrap; margin-top: 1%; position: absolute; margin-left: 50px;">
+          <h4 style="color: orangered; padding-top: 15px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp자유게시판&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp식당추천게시판</h4>
+        </table>
+      </div>
+
+      <div style="position: absolute; top: 12%;">
+        <a href="free_main.html" style="text-decoration: none; margin-left: 300px; font-family: 'Nanum Gothic'; font-style: normal; font-weight: 700;">더보기>></a> 
+        <a href="store_recommend.html" style="text-decoration: none; margin-left: 300px; font-family: 'Nanum Gothic'; font-style: normal; font-weight: 700;">더보기>></a>
+      </div>
+
+      <div>
+        <table class = "container3 mt-10" style="white-space: nowrap; margin-top: 1%; position: absolute; margin-left: 420px;">
+        </table>
+      </div>
+    </div>
+
+    <br>
+
+    <div style="position: relative; border: solid 3px; border-color: rgb(47, 9, 136); width: 815px; height: 275px;"> <!--먹스타그램-->
+      <span style="font-family: 'Nanum Gothic'; font-style: normal; font-weight: 550; white-space: nowrap; padding: 10px; font-size: 20px; color: rgb(47, 9, 136);">먹스타그램</span>  <a href="muckstar_main.html" style="text-decoration: none;">
+        <span style="margin-left: 600px; font-family: 'Nanum Gothic'; font-style: normal; font-weight: 700;"> 더보기>></span></a>
+      <table class = "container1 mt-10" style="white-space: nowrap; margin-top: 1%; position: absolute;"></table>
+    </div>
+  </aside>
+
+  <footer style="float : right; position: relative; width: 29%; height: 110vh;">
+    <!--메뉴추천-->
+    <div class="card" style="width: 350px; height: 680px; top: 2.5%; left: 2%; position: absolute; background-color: lavenderblush; border-color:rgb(11, 44, 6); border-width: 0.2rem; border-radius: 5rem; text-align: center;">
+      <h3 id = "top_paading" style="margin-top: 30px; margin-left: 10px; font-family: 'Nanum Gothic'; font-style: normal; font-weight: 700;">음식 메뉴 추천</h3>
+              
+      <br>
+              
+      <button id = "random_btn" style="font-size: 20px;
+                                                  width: 200px;
+                                                  height: 50px;
+                                                  border-radius: 1.5rem;
+                                                  background-color: darkmagenta;
+                                                  color: aliceblue; margin-left: 75px;">오늘의 메뉴는?!</button>
+                                                                  
+      <br>
+    
+      <img id = "menu_img" src = "/image/menu_img/00.PNG" width = 250px height = 250px style="margin-left: 45px;
+                                                                                                      font-size: 50px;
+                                                                                                      color: rgb(179, 41, 41);">	
+    
+      <br/>		
+    
+      <h3 class="color1" style="color: rgb(24, 114, 69);">메뉴</h3> <h4 id ="menu_name"></h4>
+              
+      <br>
+              
+      <h3 class = "color2" style="color: rgb(13, 126, 9);">식당</h3> <h4 id ="franchise" style="word-break: keep-all;"></h3>
+
+      <br>
+
+     </div>
+
+  <div class="container p-4 detail" style="position: absolute; top: 69%;"> <!--채팅방-->
+    <div class="row">
+      <div class="col-8 p-0">
+        <div class="chat-room" style="background: url(./image/chat_img/chat_background1.PNG); background-size: cover; width: 350px;">
+          <ul class="list-group chat-content" id = "chatContent" style="height: 230px; overflow-y: scroll; padding: 10px;">
+          </ul>
+          <div class="input-group">
+            <input class="form-control chat-input" id="chat-input" placeholder="채팅방 클릭하고 이용해주세요.">
+            <button class="btn btn-secondary" id="send">전송</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 p-0">
+        <ul class="list-group chat-list">
+          <li class="list-group-item" style="background-color: rgb(121, 241, 195); width: 170px;"> <!--채팅방 목록-->
+            <span style="font-family: 'Nanum Gothic'; font-style: normal; font-weight: 555;" id = "chat_title">채팅방</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+ </div> 
+  </footer>
+
+
+  <script src="/__/firebase/9.8.1/firebase-app-compat.js"></script>
+  <script src="/__/firebase/9.8.1/firebase-auth-compat.js"></script>
+  <script src="/__/firebase/9.8.1/firebase-firestore-compat.js"></script>
+  <script src="/__/firebase/9.8.1/firebase-storage-compat.js"></script>
+  
+  <!--bootstrapjs-->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" 
+    crossorigin="anonymous">
+  </script>
+    
+  <!--jquery-->
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+  </script>
+
+  <!--firebase-->
+  <script> // 파이어 베이스 연동
+    const firebaseConfig = {
+    apiKey: "AIzaSyCqNsH4WnQVWyOtpmP3I6Js3mFwThDcOQI",
+    authDomain: "espsensortestcbj.firebaseapp.com",
+    databaseURL: "https://espsensortestcbj-default-rtdb.firebaseio.com",
+    projectId: "espsensortestcbj",
+    storageBucket: "espsensortestcbj.appspot.com",
+    messagingSenderId: "574319666940",
+    appId: "1:574319666940:web:fb395ba5d9d47f475d5979",
+    measurementId: "G-LXM4LVYD4V"
+    };
+
+    const app = firebase.initializeApp(firebaseConfig);
+  </script>
+
+
+  <script>  // 회원관리, 게시판, 먹스타 글 일부만 보여지는 기능
+     const db = firebase.firestore();
+     const storage = firebase.storage();
+
+     const login_btn = document.getElementById('login');
+     const logout_btn = document.getElementById('logout');
+     const register = document.getElementById('register');
+     const form = document.getElementById('form');
+     const logo = document.getElementById('logo');
+     const logo2 = document.getElementById('logo2');
+     const col_auto = document.getElementById('col-auto');
+
+     var user_name = JSON.parse(localStorage.getItem('user')).displayName;
+     var my_uid = JSON.parse(localStorage.getItem('user')).uid;
+     var chat_id;
+      
+
+     firebase.auth().onAuthStateChanged((user)=> { // 로그인시/로그아웃시/새로고침시 실행된다. 이 유저 정보를 user에 담는다.
+       if(user) { // 로그인된 상태라면
+         console.log(user.uid)
+         console.log(user.displayName)
+         $('#userName').html(user.displayName + '님')         // 유저 이름을 이용해서 로그인한 상태일시 출력해줌
+          localStorage.setItem('user', JSON.stringify(user))   // 오브젝트 문자열로 변환해서 넣는다.
+          $('#chat_title').html(user.displayName + '님의 채팅방')  // 유저 이름을 이용해서 채팅방 이름에 추가
+
+         login_btn.style.display = 'none';      // 로그인, 로그아웃, 회원가입, 로고, 폼 로그인 상태에 따라 스타일 변경
+         logout_btn.style.display = 'inline';
+         register.style.display = 'none';
+         logo.style.display = 'inline';
+         logo2.style.display = 'none';
+         col_auto.style.top = '34%';
+         logout_btn.style.marginLeft = '70px';
+        }
+        else {
+          logout_btn.style.display = 'none';
+          logo2.style.display = 'inline';
+          form.style.display = 'inline';
+        }
+     })
+
+
+     $('#login').click(function(){   // 로그인 버튼을 눌렀을 때
+      var email = $('#inputEmail').val();
+      var password = $('#inputPassword').val();
+      
+      firebase.auth().signInWithEmailAndPassword(email, password).then((result) => { // 입력한 값을 비교하여 로그인
+        alert('로그인 되었습니다!')
+        window.location.href = '/main.html'
+      }).catch(function(){
+        alert('아이디 비밀번호를 정확히 입력해주세요')
+      })
+     })
+
+
+     $('#logout').click(function(user){  // 로그아웃 버튼을 눌렀을 때 로그아웃
+       if(user) {
+       firebase.auth().signOut().then(()=>{
+        alert('로그아웃 되었습니다')
+        location.reload();
+       })
+      }
+     })
+
+     // 자유게시판, 식당게시판, 먹스타그램 제한을 두어 출력
+     var view = `  
+        <table style= "border-top: solid 1px #AEAEAE; background-color: #AEAEAE; border-collapse: collapse; margin: 1px;  text-align: center;">
+          <tr>
+            <td style="text-align: center; width: 270px;">제목</td>
+            <td style="text-align: center; width: 50px;">추천</td>
+          </tr>
+        </table>`;
+          $('.container2').append(view)
+
+      db.collection('free').orderBy('date', 'desc').limit(7).get().then((result)=>{
+          result.forEach((doc)=>{
+          var view = `
+        <table>
+          <tr>
+            <td style="text-align: left; width: 270px; background-color: white; color:blue";><a style="color: black; text-decoration: none;" href="/free_board.html?id=${doc.id}">${doc.data().title}</a> <span style="color : red;">[${doc.data().comment}]</span></a></td>
+            <td style="text-align: center; width: 50px; background-color: white;";>${doc.data().like}</td>
+          </tr>
+        </table>`;
+          $('.container2').append(view)
+        })
+      })
+      
+      var view = `
+        <table style= "border-top: solid 1px #AEAEAE; background-color: #AEAEAE; border-collapse: collapse; margin: 1px;  text-align: center;">
+          <tr>
+            <td style="text-align: center; width: 270px;">제목</td>
+            <td style="text-align: center; width: 50px;">추천</td>
+          </tr>
+        </table>`;
+          $('.container3').append(view)
+          
+      db.collection('store').orderBy('date', 'desc').limit(7).get().then((result)=>{
+          result.forEach((doc)=>{
+          var view = `
+        <table>
+          <tr>
+            <td style="text-align: left; width: 270px; background-color: white; color:blue;"><a style="color: black; text-decoration: none;" href="/store_board.html?id=${doc.id}">${doc.data().title}</a>  <span style="color : red;">[${doc.data().comment}]</span></a></td>
+            <td style="text-align: center; width: 50px; background-color: white;">${doc.data().like}</td>
+          </tr>
+        </table>`;
+          $('.container3').append(view)
+        })
+      })	 
+
+
+     db.collection('muckstargram').orderBy('date', 'desc').limit(4).get().then((result)=>{
+      result.forEach((doc)=>{
+          var view = `<td>
+                      <div class = "card" style = "width: 200px; height: 220px; border-width: 3px; border-color: rgb(117, 73, 19);">
+                        <a href="/muckstar_board.html?id=${doc.id}"><div class="card-body" style="position: relative; background-image: url('${doc.data().img}'); width: 175px; height: 160px; background-position: center; background-size : cover; margin-left : 10px; margin-top: 10px;"></div></a>
+                           </div></a>
+                           <div class="card-body" style = "position: absolute; top: 80%;">
+                             <span><img src="/image/muckstargram/favorite_icon.PNG" style = "width: 25px; height: 20px; margin-left: 20px;"> <span class="like" style ="font-weight: 400; font-size: 20px;"> ${doc.data().like}</span></span>
+                            <span><img src="/image/muckstargram/comment_icon.PNG" style = "width: 20px; height: 20px; margin-left: 50px;">  <span class="comment" style ="font-weight: 400; font-size: 20px;"> ${doc.data().comment}</span></span>
+                           </div>  
+                       </div>
+                       </td>`;
+                     $('.container1').append(view)
+      })
+    })
+
+  </script>
+
+  <script> // 메뉴 추천 기능
+		const menu = [  // 메뉴, 식당, 이미지 항복을 배열 안에 정의함
+			{ name : "한식, 백반", franchise : "홍장금백반전문점", menu_img  : "/image/menu_img/01.PNG" }, 
+			{ name : "분식", franchise : "김밥천국, 고봉민김밥, 청년분식", menu_img  : "/image/menu_img/02.PNG"  }, 
+			{ name : "중식", franchise : "왕비성, 홍콩반점, 사대천왕", menu_img  : "/image/menu_img/03.PNG" }, 
+			{ name : "치킨", franchise : "bhc, bbq, 교촌, 지코바", menu_img  : "/image/menu_img/04.PNG" }, 
+			{ name : "햄버거", franchise : "맘스터치, 버거킹, 맥도날드, 롯데리아", menu_img  : "/image/menu_img/05.PNG" }, 
+			{ name : "샌드위치", franchise : "서브웨이, 시나피샌드위치", menu_img  : "/image/menu_img/06.PNG" }, 
+			{ name : "떡볶이", franchise : "엽기떡볶이, 신떡, 달토끼", menu_img  : "/image/menu_img/07.PNG" }, 
+			{ name : "초밥", franchise : "상무초밥, 청춘초밥, 스시하린, 다해초밥", menu_img  : "/image/menu_img/08.PNG" }, 
+			{ name : "피자", franchise : "피자헛, 도미노피자, 미스터피자, 파파존스 ", menu_img  : "/image/menu_img/09.PNG" }, 
+			{ name : "족발, 보쌈", franchise : "도미보쌈족발, 대박족발, 명품족발&보쌈", menu_img  : "/image/menu_img/10.PNG" }, 
+			{ name : "곱창", franchise : "낙곱새, 오복곱창, 곱분이곱창", menu_img  : "/image/menu_img/11.PNG" }, 
+			{ name : "돈까스", franchise : "홍카츠, 너무커서놀란돈까스&별리달리", menu_img  : "/image/menu_img/12.PNG" }, 
+			{ name : "국밥, 감자탕", franchise : "이순신소국밥, 아구쪽 ", menu_img  : "/image/menu_img/13.PNG" },
+			{ name : "닭갈비", franchise : "일미닭갈비, 5.5닭갈비, 장인닭갈비 ", menu_img  : "/image/menu_img/14.PNG" }
+		]
+
+
+		function randomMenu() {  // 랜덤 메뉴 함수 선언
+	
+			const randomMenu = Math.floor(Math.random() * menu.length); // 선언한 개수 안으로 랜덤 범위를 지정하기 위해 + 소수점 제거를 위해 버림 함수 적용
+
+			const menu_name = document.getElementById("menu_name"); // 화면에 나타나게 할  메뉴, 식당 id를 가져온 변수 선언
+			const franchies = document.getElementById("franchies"); 
+			const menu_img = document.getElementById("menu_img");
+
+			menu_name.innerText = menu[randomMenu].name;            // 해당 변수 안의 메뉴, 식당, 이미지를 랜덤하게 출력 적용
+			franchise.innerText = menu[randomMenu].franchise;
+			menu_img.src = menu[randomMenu].menu_img;				
+		}
+
+		const random_btn = document.getElementById("random_btn"); // 버튼을 동작하기 위한 id를 가져온 변수 선언
+		random_btn.addEventListener("click", randomMenu);         // 클릭 시 랜덤 메뉴 함수 작동	
+  </script>
+
+  
+  <script> // 채팅 기능
+     var user_name = JSON.parse(localStorage.getItem('user')).displayName;
+     var my_uid = JSON.parse(localStorage.getItem('user')).uid;
+     var chat_id;
+     
+         db.collection('muckstar_chatroom').where('chat_useruid', 'array-contains', my_uid).get().then((result)=>{
+            result.forEach((a)=>{
+              firebase.auth().onAuthStateChanged((user)=> { // 로그인시/로그아웃시/새로고침시 실행된다. 이 유저 정보를 user에 담는다.
+                if(user) { // 로그인된 상태라면
+                    console.log(a.data())
+                  
+                    // 채팅방 리스트 출력
+                    var view = `<div style = "position: relative; height: 50px; width: 170px;"> 
+                                <h5 style = "position: absolute; top: 10%; left: 13%; z-index: 10;">${a.data().title}</h5> 
+                                  <li class="list-group-item" style = "height: 50px; z-index: 0;"> 
+                                  <h6 class="text-small" style = "color: white; height: 40px;  position: absolute; top: 5%; left: 2%; width: 162px;">${a.id}</h6> 
+                                  </li>
+                                </div>`
+                                $('.chat-list').append(view)
+
+
+                    $('.list-group-item').click(function(e){  // 채팅방 목록을 클릭했을 때
+                    chat_id = $(this).children('.text-small').text()   // 내가 누른 채팅방 목록 요소의 텍스트를 찾아줌
+
+                    e.stopImmediatePropagation(); // 이벤트 버블링 현상을 막음
+
+                    db.collection('muckstar_chatroom').doc(chat_id).collection('message').orderBy('date').onSnapshot((result)=>{ // 변경이 발생할 때 발생하는 이벤트 리스너 onSnapshot
+                        $('.chat-content').html('');  // 기존 있던 내용 안겹치게 초기화
+                        
+                        result.forEach((a)=>{ // 누른 채팅방 목록 요소의 채팅 메시지들 출력 
+                            console.log(a.data())
+                            if(my_uid == a.data().uid){
+                              var view =`<li style = "margin-top: 10px;"><span class="chat-box mine" style = "background-color: white; float: right; background: #eee; padding: 5px; border-radius: 5px;"> <span style="font-size: 5px; margin-right: 30px;">${a.data().date.toDate().toLocaleString()}</span> <span style = "background-color: lightyellow; font-size : 15px;">${a.data().content}</span> </span></li>`;
+                              $('.chat-content').append(view)
+                            }
+                            else{
+                              var view =`<li><span class="chat-box" style = "background-color: white; background: #eee; padding: 5px; border-radius: 5px; float: left;"> <span style = "background-color: rgb(247, 173, 207); font-size : 15px;">${a.data().content}</span> <span style="font-size: 5px; margin-left: 30px;">${a.data().date.toDate().toLocaleString()}</span></span></li>`;
+                              $('.chat-content').append(view)
+                            }
+                         })
+                         $('#chatContent').scrollTop($('#chatContent')[0].scrollHeight);  // 스크롤바 아래에서부터로 적용
+                     })
+                    })             
+                  }
+                  else {
+                  }
+              })
+            })
+        })
+        
+
+        $('#send').click(function(){ // 채팅 메시지 전송을 클릭할 때 채팅 메시지 내용물을 컬렉션 안에 추가한다.
+          var data = {
+              name : user_name,
+              content : $('#chat-input').val(),
+              date : new Date(),
+              uid : my_uid
+          }
+
+          db.collection('muckstar_chatroom').doc(chat_id).collection('message').add(data).then(()=>{
+            $('#chat-input').val('')
+          })
+        })
+  </script>
+</body>
+</html>

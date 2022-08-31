@@ -1,0 +1,26 @@
+#mtitle {
+    margin-top: 50px;
+    margin-left: 780px;
+    margin-bottom: 50px;
+}
+
+#title {
+    margin-left: 150px;
+    width: 1000px;
+}
+
+#content{
+    margin-left: 150px;
+    width: 1000px;
+}
+
+#image {
+    margin-left: 150px;
+    width: 1000px;
+}
+
+#send {
+    margin-left: 150px;
+    width: 1000px;
+    font-size: 20px;
+}

@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+    
+.main{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, lightblue, lightyellow);
+    z-index: 2;
+}
+ 
+.logo {
+    flex-basis: 20%;
+}
+
+#random_btn  {
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    border-radius: 1.5rem;
+    background-color: darkmagenta;
+    color: aliceblue;
+    margin-top: 30px;
+}
+
+#menu_img {
+    padding-top: 50px;
+    font-size: 50px;
+    color: rgb(179, 41, 41);
+}
+.color1{
+    color: rgb(24, 114, 69);
+
+}
+.color2 {
+    color: rgb(13, 126, 9);
+
+}
+
+#recommend_main{
+    padding-top: 50px;
+    width: 1000px;
+    height: 1000px;
+    position: absolute;
+    top: 60%;
+    left: 10%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: darkmagenta;
+}
+
+#circle {
+    width: 1000px;
+    height: 1000px;
+    position: absolute;
+    top: 0;
+    left: -10%;
+    border-radius: 50%;
+    transform: rotate(0deg);
+    transition: 1s;
+    z-index: 0;
+}
+.feature {
+    font-size: 30px;
+    position: absolute;
+    z-index: 0;
+}
+.feature img {
+    width: 100px;
+    height: 100px;
+    z-index: 0;
+}
+.feature div { 
+    margin-left: 30px;
+    z-index: 0;
+}
+.one {
+    top: 280px;
+    right: 130px;
+}
+.two {
+    top: 150px;
+    left: 200px;
+    transform: rotate(-90deg);
+}
+.three {
+    bottom: 280px;
+    right: 620px;
+    transform: rotate(-180deg);
+}
+.four {
+    bottom: 180px;
+    right: 280px;
+    transform: rotate(-270deg);
+}
+
+.controls {
+    position: absolute;
+    left: 750px;
+    top: 380px;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.controls h3{
+    margin: 15px 0;
+    color: darkmagenta;
+}
+#up_btn {
+    width: 15px;
+    cursor: pointer;
+}
+#down_btn {
+    width: 15px;
+    cursor: pointer;
+    transform: rotate(180deg);
+}
+
+.overlay {
+    width: 100%;
+    height: 0;
+    border-top: 550px solid lightblue;
+    border-bottom: 650px solid lightblue;
+    border-left: 650px solid lightblue;
+    border-right: 900px solid transparent;
+    position: absolute;
+    left: -50%;
+    top: -16%;
+}
+
+.menu_background {
+    top: 0;
+    position: absolute;
+    left: 500px;
+    text-align: center;
+}
+
+.lightblue {
+    color: lightblue;
+}
