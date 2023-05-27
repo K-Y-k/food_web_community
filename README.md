@@ -1,5 +1,5 @@
-# food_web_community
-html, jquery, FirebaseDB를 활용한 음식 커뮤니티 웹 사이트 사이드 프로젝트
+# :rocket: Food World
+html, jquery, FirebaseDB를 활용한 음식 커뮤니티 웹 사이트(사이드 프로젝트)
 
 - 개발 인원: 1명
 - 개발 기간: 2022.06 ~ 2022.07
